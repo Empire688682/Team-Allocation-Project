@@ -85,11 +85,24 @@ const Employees = () => {
         fullName: "Devin Monroe",
         designation: "Graphic Designer",
         gender: "male",
-        teamName: "TeamD"}])
+        teamName: "TeamD"}]);
+
+  const [selectedTeam, setSelectedTeam] = useState("Team B");
+
+  function handleTeamSelectionChange(event){
+    setSelectedTeam(event.target.value);
+  }
+  
+  function handleEmployeeCardClick(event){
+    const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
+                                                ? (employee.teamName === selectedTeam) ? {...employee, teamName:""}:{...employee, teamName: selectedTeam}
+                                                :employee);
+    setEmployees(transformedEmployees);
+  }
   return (
     <main className='employees-content'>
         <div className="selections">
-            <select>
+            <select value={selectedTeam} onChange={handleTeamSelectionChange}>
                 <option value="Team A">Team A</option>
                 <option value="Team B">Team B</option>
                 <option value="Team C">Team C</option>
@@ -99,7 +112,7 @@ const Employees = () => {
         <div className="card-collection">
             {employees.map((employee) => (
             // eslint-disable-next-line react/jsx-key
-            <div className='card'>
+            <div className={(employee.teamName === selectedTeam?"card shadow":"card")} id={employee.id} onClick={handleEmployeeCardClick}>
                 {employee.gender === "female" ? <img src={female_Icon} className='card-img'/>:<img src={male_Icon} className='card-img'/>}
                     <div className="card-body">
                         <p className='name'>{employee.fullName}</p>
