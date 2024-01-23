@@ -1,11 +1,10 @@
 import React from 'react';
 import './content.css';
 
-const footer = ({totalMember}) => {
+const footer = () => {
   return (
     <footer>
-      <h1>Footer</h1>
-      <h2>{totalMember} Member</h2>
+      <p>Team Allocation {new Date().getFullYear()}</p>
     </footer>
   )
 }

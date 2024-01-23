@@ -116,7 +116,7 @@ setEmployees(transformedEmployees);
     <div className='app-content'>
       <Header selectedTeam={selectedTeam} selectedTeamCount={employees.filter((employee) => employee.teamName === selectedTeam).length}/>
       <Employees employees={employees} selectedTeam={selectedTeam} handleTeamSelectionChange={handleTeamSelectionChange} handleEmployeeCardClick={handleEmployeeCardClick} />
-      <Footer totalMember={employees.filter((employee) =>employee).length}/>
+      <Footer/>
     </div>
   )
 }
