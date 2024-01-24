@@ -1,3 +1,24 @@
+nav{
+    margin-bottom: 30px;
+} 
+nav ul{
+    display: flex;
+    align-items: center;
+}
+nav ul li{
+    list-style: none;
+    margin-right: 20px;
+}
+nav ul li .nav-link{
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(241, 237, 237);
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+    font-weight: bolder;
+}
 header{
     margin-bottom: 30px;
     background-color: red;
@@ -54,5 +75,13 @@ footer{
 }
 .shadow{
     border: 4px solid red;
+}
+.page-error{
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: cursive;
+    width: 100%;
+    text-align: center;
 }
 

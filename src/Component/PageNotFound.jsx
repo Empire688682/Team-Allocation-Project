@@ -1,0 +1,10 @@
+import './content.css'
+const PageNotFound = () => {
+  return (
+    <div>
+      <h1 className='page-error'>404 - Page not found</h1>
+    </div>
+  )
+}
+
+export default PageNotFound

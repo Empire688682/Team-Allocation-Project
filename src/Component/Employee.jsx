@@ -21,7 +21,7 @@ const Employees = ({employees,selectedTeam,handleTeamSelectionChange,handleEmplo
             {employees.map((employee) => (
             
             // eslint-disable-next-line react/jsx-key
-            <div className={(employee.teamName === selectedTeam?"card shadow":"card")} id={employee.id} onClick={handleEmployeeCardClick}>
+            <div key={employee.id} className={(employee.teamName === selectedTeam?"card shadow":"card")} id={employee.id} onClick={handleEmployeeCardClick}>
                 {employee.gender === "female" ? <img src={female_Icon} className='card-img'/>:<img src={male_Icon} className='card-img'/>}
                     <div className="card-body">
                         <p className='name'>{employee.fullName}</p>

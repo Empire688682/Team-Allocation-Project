@@ -1,10 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState,useEffect } from 'react';
 import Header from './Component/header';
-import Employees from './Component/Employee';
+import Employees from './Component/employee';
+import GroupedTeamMembers from './Component/GroupedTeamMembers';
+import NavBar from './Component/nav';
+import PageNotFound from './Component/pageNotFound';
 import Footer from './Component/footer';
 import './Component/content.css'
 import './App.css'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 const App = () => {
 
@@ -111,12 +115,22 @@ const transformedEmployees = employees.map((employee) => employee.id === parseIn
                                             :employee);
 setEmployees(transformedEmployees);
 }
-
   return (
     <div className='app-content'>
-      <Header selectedTeam={selectedTeam} selectedTeamCount={employees.filter((employee) => employee.teamName === selectedTeam).length}/>
-      <Employees employees={employees} selectedTeam={selectedTeam} handleTeamSelectionChange={handleTeamSelectionChange} handleEmployeeCardClick={handleEmployeeCardClick} />
-      <Footer/>
+      <Router>
+        <NavBar />
+        <Header selectedTeam={selectedTeam} selectedTeamCount={employees.filter((employee) => employee.teamName === selectedTeam).length}/>
+          <Routes>
+              <Route path='/'
+              element ={
+                <Employees employees={employees} selectedTeam={selectedTeam} handleTeamSelectionChange={handleTeamSelectionChange} handleEmployeeCardClick={handleEmployeeCardClick} />
+              }
+              />
+              <Route path='/GroupedTeamMembers' element={<GroupedTeamMembers />} />
+              <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        <Footer/>
+      </Router>
     </div>
   )
 }
