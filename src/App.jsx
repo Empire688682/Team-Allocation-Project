@@ -103,7 +103,7 @@ useEffect(() =>{
 
 useEffect(() =>{
   localStorage.setItem("selectedTeam", JSON.stringify(selectedTeam));
-},[selectedTeam])
+},[selectedTeam]);
 
 function handleTeamSelectionChange(event){
 setSelectedTeam(event.target.value);
